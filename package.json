@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-block-drupal-content-feed",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "description": "Component that creates a newsletter from a drupal (REST) content feed.",
   "main": "dist/grapesjs-block-drupal-content-feed.min.js",
   "scripts": {

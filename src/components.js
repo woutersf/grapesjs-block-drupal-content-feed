@@ -16,7 +16,8 @@ export default function(editor, opt = {}) {
       defaults: {
         ...defaultModel.prototype.defaults,
         script: function() {
-          console.log('content feed script');
+          console.log('content feed script', this.model);
+
         }
       },
     }, {
@@ -35,24 +36,25 @@ export default function(editor, opt = {}) {
       init() {
         this.listenTo(this.model, 'change:startfrom change:endText', this.updateScript);
         const comps = this.model.get('components');
-        for (let i = 0; i < 10; i++) {
-          comps.add(`
+        fetch(c.feedUrl)
+          .then(response => response.json())
+          .then(repos => {
+            console.log('looping repos');
+            const reposList = repos.map(repo => { 
+              comps.add(`
             <div data-js="remote content" class="${pfx}-cont">
-              IMAGE
-
-              TITLE
-
-              CONTENT
-
+              ${repo.html_url}
+              <h4>
+                ${repo.name}
+              </h4>
+              <div>
+                ${repo.description}
+              </div>
             </div>
-            
           `);
-        }
-        // Add a basic countdown template if it's not yet initialized
-        // if (!comps.length) {
-        //   comps.reset();
-          
-        // }
+            });
+          })
+        .catch(err => console.log(err))
 
       }
     }),

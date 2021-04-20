@@ -5,7 +5,7 @@ import {
 export default function(editor, opt = {}) {
   const c = opt;
   const bm = editor.BlockManager;
-  const pfx = c.countdownClsPfx;
+  const pfx = c.rilClsPfx;
   const style = c.defaultStyle ? `<style>
     .${pfx} {
       text-align: center;
