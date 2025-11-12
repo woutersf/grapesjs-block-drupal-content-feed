@@ -1,3 +1,5 @@
+**Deprecated by this plugin: https://github.com/woutersf/MauticEmailRssImportBundle**
+
 # GrapesJS Drupal/Rest remote content block
 
 Remote content newsletter component for GrapesJS Editor
